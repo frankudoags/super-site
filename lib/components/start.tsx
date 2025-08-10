@@ -1,6 +1,6 @@
+import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { gsap } from '../animations/gsap';
-import { useGSAP } from '@gsap/react';
 
 const Start = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -10,55 +10,38 @@ const Start = () => {
     const darkPathRef = useRef<SVGPathElement>(null);
 
     useGSAP(() => {
-        // Scaling both gradient SVGs
-        gsap.to([pinkRef.current, darkRef.current], {
-            scale: 1.8,
+        const tl = gsap.timeline({
+            defaults: {
+                ease: "power1.inOut",
+            },
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: 'top top',
-                end: 'bottom 80%',
-                scrub: true,
+                end: 'bottom top',
+                scrub: 1,
+                pin: true,
+                markers: true
             },
-            transformOrigin: 'center center',
-            ease: "sine.inOut",
         });
-
-        // Morphing both paths
-        gsap.to(pinkPathRef.current, {
-            duration: 0.5,
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top top',
-                end: 'bottom 90%',
-                scrub: true,
-            },
-            height: "100vh",
-            morphSVG: {
-                shape:
-                    "M720.5 100C169 100 10.5 839 -429 839H1870C1204 839 1272 100 720.5 100Z",
-            },
-            ease: "sine.inOut",
-            y: 0,
-        });
-
-        // Morphing both paths
-        gsap.to(darkPathRef.current, {
-            duration: 0.5,
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top top',
-                end: 'bottom 90%',
-                scrub: true,
-            },
-            height: "100vh",
-            morphSVG: {
-                shape:
-                    "M720.5 100C169 100 210.5 839 -429 839H1870C1204 839 1272 100 720.5 100Z",
-            },
-            ease: "sine.inOut",
-            y: 0,
-        });
-
+        tl
+            .to(pinkPathRef.current, {
+                morphSVG: {
+                    shape:
+                        "M720.5 100C169 100 10.5 839 -429 839H1870C1204 839 1272 100 720.5 100Z",
+                },
+                y: 0,
+            })
+            .to(darkPathRef.current, {
+                morphSVG: {
+                    shape:
+                        "M720.5 100C169 100 210.5 839 -429 839H1870C1204 839 1272 100 720.5 100Z",
+                },
+                y: 0,
+            }, "<")
+            .to([pinkRef.current, darkRef.current], {
+                scale: 1.7,
+                transformOrigin: 'center center',
+            })
     }, []);
 
     return (
@@ -77,7 +60,6 @@ export const PinkGradient = ({ svgRef, pathRef }: { svgRef: React.RefObject<SVGS
             ref={svgRef}
             className='absolute bottom-0 w-[100vw] h-[100vh]'
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
         >
             <g filter="url(#filter0_f_2_28104)">
                 <path
@@ -89,11 +71,11 @@ export const PinkGradient = ({ svgRef, pathRef }: { svgRef: React.RefObject<SVGS
                 />
             </g>
             <defs>
-                {/* <filter id="filter0_f_2_28104" x="-733" y="0" width="2907" height="1582" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <filter id="filter0_f_2_28104" x="-733" y="0" width="2907" height="1582" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                     <feFlood floodOpacity="0" result="" />
                     <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                     <feGaussianBlur stdDeviation="92" result="effect1_foregroundBlur_2_28104" />
-                </filter> */}
+                </filter>
                 <linearGradient
                     id="paint0_linear_2_28104"
                     x1="720.5"
@@ -120,7 +102,6 @@ export const DarkGradient = ({ svgRef, pathRef }: { svgRef: React.RefObject<SVGS
         height="546"
         viewBox="0 0 1440 546"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
     >
         <g filter="url(#filter0_f_2_28105)">
             <path
@@ -132,11 +113,11 @@ export const DarkGradient = ({ svgRef, pathRef }: { svgRef: React.RefObject<SVGS
             />
         </g>
         <defs>
-            {/* <filter id="filter0_f_2_28105" x="-529" y="0" width="2499" height="939" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <filter id="filter0_f_2_28105" x="-529" y="0" width="2499" height="939" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                 <feGaussianBlur stdDeviation="44" result="effect1_foregroundBlur_2_28105" />
-            </filter> */}
+            </filter>
             <linearGradient
                 id="paint0_linear_2_28105"
                 x1="720.5"

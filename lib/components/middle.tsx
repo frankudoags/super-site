@@ -63,7 +63,7 @@ export const SnakePath = () => {
             strokeDashoffset: 0, 
             ease: 'none',
         })
-    }, [])
+    }, {scope: containerRef})
 
     return (
         <div ref={containerRef} className="absolute top-0 w-full h-full z-1">
@@ -72,24 +72,30 @@ export const SnakePath = () => {
                 viewBox="0 0 797 822"
                 preserveAspectRatio="xMidYMid meet"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
             >
                 {/* Back path — full width */}
                 <path
                     ref={pathRef}
                     d="M150.097 12C223.097 12 517.597 48.8044 517.597 81.9996C517.597 127 -93.9024 123.5 28.0973 197C150.097 270.5 1106.9 427.232 671.097 634C534.097 699 217.098 725.5 225.098 865"
-                    stroke="#FFFFFF"
-                    strokeOpacity={0.05}
-                    strokeWidth="4"
+                    stroke="url(#white_gradient)"
+                    strokeWidth="7"
                     strokeLinecap="round"
                 />
+                {/* Define gradient for the path */}
+                <defs>
+                    <linearGradient id="white_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.05" />
+                        <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.05" />
+                    </linearGradient>
+                </defs>
 
                 {/* Animated thin trail path */}
                 <path
                     ref={trailRef}
                     d="M150.097 12C223.097 12 517.597 48.8044 517.597 81.9996C517.597 127 -93.9024 123.5 28.0973 197C150.097 270.5 1106.9 427.232 671.097 634C534.097 699 217.098 725.5 225.098 865"
                     stroke="#C8BFFF"
-                    strokeWidth="4"
+                    strokeWidth="7"
                     strokeLinecap="round"
                 />
 
@@ -101,7 +107,7 @@ export const SnakePath = () => {
                     r="4.8838"
                     fill="white"
                     stroke="#C8BFFF"
-                    strokeWidth="3.25587"
+                    strokeWidth="4.25587"
                 />
             </svg>
         </div>
