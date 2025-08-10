@@ -17,7 +17,6 @@ const End = () => {
         end: 'top 40%',
         scrub: true,
         pin: true,
-        markers: true,
       }
     });
 
