@@ -74,11 +74,11 @@ export const DarkGradient = ({ svgRef, pathRef }: { svgRef: React.RefObject<SVGS
          fill="url(#paint0_linear_56_2687)" />
     </g>
     <defs>
-      <filter id="filter0_f_56_2687" x="-529" y="-256" width="2499" height="939" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      {/* <filter id="filter0_f_56_2687" x="-529" y="-256" width="2499" height="939" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
         <feGaussianBlur stdDeviation="92" result="effect1_foregroundBlur_56_2687" />
-      </filter>
+      </filter> */}
       <linearGradient id="paint0_linear_56_2687" x1="720.5" y1="344.008" x2="720.5" y2="-516.001" gradientUnits="userSpaceOnUse">
         <stop offset="0.077751" stopColor="#2E3532" />
         <stop offset="0.309881" stopColor="#2E3532" />

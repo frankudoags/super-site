@@ -7,6 +7,10 @@ const Middle = () => {
         <div className='w-full flex flex-col items-start justify-start text-5xl mx-auto z-20 overflow-hidden'>
             <div className='relative bg-[#2E3532] h-[300vh] w-full'>
                 <SnakePath />
+
+                <h1 className='text-5xl text-white text-center'>
+                    Heading goes here
+                </h1>
             </div>
         </div>
     )
