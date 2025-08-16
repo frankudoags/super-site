@@ -86,3 +86,33 @@ export const DarkGradient = ({ svgRef, pathRef }: { svgRef: React.RefObject<SVGS
   </svg>
 
 );
+
+
+/**
+ * dark gradient end path here
+ * <svg width="1440" height="109" viewBox="0 0 1440 109" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M722 109C170.5 109 210.5 0 -429 0H1870C1204 0 1273.5 109 722 109Z" fill="url(#paint0_linear_60_3158)"/>
+<defs>
+<linearGradient id="paint0_linear_60_3158" x1="720.5" y1="404.008" x2="720.5" y2="-456" gradientUnits="userSpaceOnUse">
+<stop offset="0.077751" stop-color="#2E3532"/>
+<stop offset="0.309881" stop-color="#2E3532"/>
+</linearGradient>
+</defs>
+</svg>
+
+ */
+
+
+/**
+ * light gradient end path here
+ * <svg width="1440" height="142" viewBox="0 0 1440 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M720.5 142C193.5 142 177.5 0 -549 0H1990C1262 0 1247.5 142 720.5 142Z" fill="url(#paint0_linear_60_3157)"/>
+<defs>
+<linearGradient id="paint0_linear_60_3157" x1="720.5" y1="222" x2="720.5" y2="-245" gradientUnits="userSpaceOnUse">
+<stop offset="0.077751" stop-color="#F1C0BA"/>
+<stop offset="1" stop-color="#F8F7F5"/>
+</linearGradient>
+</defs>
+</svg>
+
+ */
